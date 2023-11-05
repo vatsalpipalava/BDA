@@ -1,0 +1,293 @@
+# create a db 
+
+use organisation
+
+#create Collection
+db.createCollection('meeting')
+
+##check collection
+db.getCollectionNames()
+
+#insert values
+db.meetings.insertMany([
+  {
+    "title": "Project Kickoff Meeting",
+    "host": "user1",
+    "timestamp": "2023-11-10T09:00:00Z",
+    "location": "Conference Room A",
+    "invitations": [
+      {
+        "user": "user2",
+        "status": "accepted",
+        "reason": null
+      },
+      {
+        "user": "user3",
+        "status": "pending",
+        "reason": null
+      }
+    ],
+    "agendas": ["Discuss project goals", "Assign roles", "Plan timeline"],
+    "documents": ["Project proposal", "Agenda document"],
+    "tasks": [
+      {
+        "title": "Prepare project presentation",
+        "priority": "high",
+        "deadline": "2023-11-08",
+        "note": "Critical for the meeting",
+        "assigned_to": "user4"
+      }
+    ]
+  },
+  {
+    "title": "Monthly Team Review",
+    "host": "user5",
+    "timestamp": "2023-11-15T15:00:00Z",
+    "location": "Online",
+    "invitations": [
+      {
+        "user": "user6",
+        "status": "accepted",
+        "reason": null
+      },
+      {
+        "user": "user7",
+        "status": "accepted",
+        "reason": null
+      }
+    ],
+    "agendas": ["Review project progress", "Discuss challenges", "Plan next steps"],
+    "documents": ["Project status report", "Meeting minutes"],
+    "tasks": []
+  },
+  {
+    "title": "Team Building Workshop",
+    "host": "user8",
+    "timestamp": "2023-11-20T10:30:00Z",
+    "location": "Team Building Center",
+    "invitations": [
+      {
+        "user": "user9",
+        "status": "accepted",
+        "reason": null
+      },
+      {
+        "user": "user10",
+        "status": "rejected",
+        "reason": "Schedule conflict"
+      }
+    ],
+    "agendas": ["Ice-breaking activities", "Team building exercises", "Group discussions"],
+    "documents": [],
+    "tasks": []
+  },
+  {
+    "title": "Marketing Strategy Meeting",
+    "host": "user11",
+    "timestamp": "2023-11-25T14:30:00Z",
+    "location": "Marketing Department",
+    "invitations": [
+      {
+        "user": "user12",
+        "status": "accepted",
+        "reason": null
+      },
+      {
+        "user": "user13",
+        "status": "accepted",
+        "reason": null
+      }
+    ],
+    "agendas": ["Review marketing campaigns", "Analyze market trends", "Plan future marketing activities"],
+    "documents": ["Sales data report"],
+    "tasks": [
+      {
+        "title": "Prepare presentation for new campaign",
+        "priority": "medium",
+        "deadline": "2023-11-22",
+        "note": null,
+        "assigned_to": "user14"
+      }
+    ]
+  },
+  {
+    "title": "Product Development Meeting",
+    "host": "user15",
+    "timestamp": "2023-11-30T11:00:00Z",
+    "location": "Product Development Lab",
+    "invitations": [
+      {
+        "user": "user16",
+        "status": "accepted",
+        "reason": null
+      },
+      {
+        "user": "user17",
+        "status": "pending",
+        "reason": null
+      }
+    ],
+    "agendas": ["Discuss product features", "Technical updates", "Testing procedures"],
+    "documents": ["Product design specifications"],
+    "tasks": []
+  },
+  {
+    "title": "Financial Report Presentation",
+    "host": "user18",
+    "timestamp": "2023-12-05T16:30:00Z",
+    "location": "Boardroom",
+    "invitations": [
+      {
+        "user": "user19",
+        "status": "accepted",
+        "reason": null
+      },
+      {
+        "user": "user20",
+        "status": "rejected",
+        "reason": "Out of town"
+      }
+    ],
+    "agendas": ["Present financial report", "Q&A session"],
+    "documents": ["Financial statements"],
+    "tasks": []
+  },
+  {
+    "title": "HR Recruitment Meeting",
+    "host": "user21",
+    "timestamp": "2023-12-10T09:00:00Z",
+    "location": "HR Department",
+    "invitations": [
+      {
+        "user": "user22",
+        "status": "accepted",
+        "reason": null
+      },
+      {
+        "user": "user23",
+        "status": "accepted",
+        "reason": null
+      }
+    ],
+    "agendas": ["Review job applications", "Interview schedule", "Selection process"],
+    "documents": [],
+    "tasks": [
+      {
+        "title": "Prepare interview questions",
+        "priority": "high",
+        "deadline": "2023-12-06",
+        "note": null,
+        "assigned_to": "user24"
+      }
+    ]
+  },
+  {
+    "title": "Sales Team Meeting",
+    "host": "user25",
+    "timestamp": "2023-12-15T14:00:00Z",
+    "location": "Sales Department",
+    "invitations": [
+      {
+        "user": "user26",
+        "status": "accepted",
+        "reason": null
+      },
+      {
+        "user": "user27",
+        "status": "accepted",
+        "reason": null
+      }
+    ],
+    "agendas": ["Review sales targets", "Discuss sales strategies", "Sales team updates"],
+    "documents": ["Sales performance report"],
+    "tasks": [
+      {
+        "title": "Follow up with potential client",
+        "priority": "medium",
+        
+        "deadline": "2023-12-12",
+        "note": "Client XYZ",
+        "assigned_to": "user28"
+      }
+    ]
+  },
+  {
+    "title": "Quality Control Meeting",
+    "host": "user29",
+    "timestamp": "2023-12-20T10:30:00Z",
+    "location": "Quality Control Lab",
+    "invitations": [
+      {
+        "user": "user30",
+        "status": "accepted",
+        "reason": null
+      },
+      {
+        "user": "user31",
+        "status": "rejected",
+        "reason": "Medical leave"
+      }
+    ],
+    "agendas": ["Quality standards review", "Defect analysis", "Process improvements"],
+    "documents": ["Quality control guidelines"],
+    "tasks": [
+      {
+        "title": "Conduct product inspection",
+        "priority": "high",
+        "deadline": "2023-12-18",
+        "note": null,
+        "assigned_to": "user32"
+      }
+    ]
+  }
+]);
+
+#question 1 --
+ db.meetings.find({documents:[]})
+
+#question 2 -- 
+db.meetings.find({timestamp:{$gt: "2022-11-01"}})
+
+#question 3 --
+//
+db.meetings.aggregate([ { $match: { "$invitations.status": "accepted" } },
+{$group:{ _id:"$title", Count:{$count:{$gt:2}}}}] )
+//
+db.meetings.aggregate([
+{$match:{"invitations.status":"accepted"}},
+{$count:"Count"},
+{$match:{ Count:{$gt:2}}}
+])
+
+
+db.meetings.aggregate([
+{$unwind:"$invitations"},
+{
+	$match:{"invitations.status":"accepted"}
+}
+])
+
+// semi working
+db.meetings.aggregate([
+  {
+    $project: {
+      _id: 0,
+      title: 1,    }
+  },
+  { $match:{"invitations.status":"accepted"}},
+  {
+    $match: {
+      attendeeCount: { $gt: 2 }
+    }
+  },
+  
+  {
+    $count: "meetingCount"
+  }
+]);
+
+
+
+#question 4 -- 
+db.meetings.find({"tasks.priority":"high"},{title:1}).sort({"tasks.priority":-1})
+

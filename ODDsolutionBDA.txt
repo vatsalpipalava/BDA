@@ -1,0 +1,154 @@
+Odd --- 
+Post 
+
+# create db
+
+use Blog
+
+#create collection--
+ 
+ db.createCollection('post')
+ 
+#see collection
+
+db.getCollectionNames()
+
+#insert values---
+
+db.post.insertMany([{// values},{}]); /// this is the syntax
+
+answer--- 
+db.post.insertMany([
+  {
+    "title": "Introduction to MongoDB",
+    "description": "Learn the basics of MongoDB, a NoSQL database.",
+    "url": "https://example.com/mongodb-intro",
+    "tags": ["MongoDB", "NoSQL", "Database"],
+    "publisher_name": "Tech World",
+    "likes": 50,
+    "comments": [
+      {
+        "user": "Alice",
+        "comment_text": "Great article!",
+        "timestamp": ISODate("2023-11-05T10:15:00Z")
+      },
+      {
+        "user": "Bob",
+        "comment_text": "I have some questions. Can you help?",
+        "timestamp": ISODate("2023-11-06T14:30:00Z")
+      },
+      {
+        "user": "Charlie",
+        "comment_text": null,
+        "timestamp": null
+      }
+    ]
+  },
+  {
+    "title": "Advanced MongoDB Techniques",
+    "description": "Explore advanced features and techniques in MongoDB.",
+    "url": "https://example.com/mongodb-advanced",
+    "tags": ["MongoDB", "Advanced", "NoSQL"],
+    "publisher_name": "Tech Insights",
+    "likes": 30,
+    "comments": []
+  },
+  {
+    "title": "Getting Started with Node.js",
+    "description": "Learn the basics of Node.js for web development.",
+    "url": "https://example.com/nodejs-intro",
+    "tags": ["Node.js", "JavaScript", "Web Development"],
+    "publisher_name": "Dev Zone",
+    "likes": 40,
+    "comments": []
+  },
+  {
+    "title": "Front-End Frameworks Comparison",
+    "description": "Compare popular front-end frameworks for web development.",
+    "url": "https://example.com/frontend-frameworks",
+    "tags": ["Front-End", "Web Development", "Frameworks"],
+    "publisher_name": "WebDev Today",
+    "likes": 60,
+    "comments": []
+  },
+  {
+    "title": "Diving into Machine Learning",
+    "description": "An in-depth look at machine learning techniques and algorithms.",
+    "url": "https://example.com/machine-learning",
+    "tags": ["Machine Learning", "AI", "Data Science"],
+    "publisher_name": "AI World",
+    "likes": 70,
+    "comments": []
+  },
+  {
+    "title": "The Art of Data Visualization",
+    "description": "Master the art of data visualization for better insights.",
+    "url": "https://example.com/data-visualization",
+    "tags": ["Data Visualization", "Analytics", "Design"],
+    "publisher_name": "DataViz Insights",
+    "likes": 25,
+    "comments": [
+      {
+        "user": "Eva",
+        "comment_text": "I love data visualization!",
+        "timestamp": ISODate("2023-11-07T12:45:00Z")
+      }
+    ]
+  },
+  {
+    "title": "Building Scalable Web Applications",
+    "description": "Tips and techniques for building scalable web apps.",
+    "url": "https://example.com/scalable-web-apps",
+    "tags": ["Web Development", "Scalability", "Architecture"],
+    "publisher_name": "Web Dev Pro",
+    "likes": 45,
+    "comments": []
+  },
+  {
+    "title": "Cybersecurity Best Practices",
+    "description": "Stay secure with these cybersecurity best practices.",
+    "url": "https://example.com/cybersecurity",
+    "tags": ["Cybersecurity", "Security", "IT"],
+    "publisher_name": "Securitech",
+    "likes": 55,
+    "comments": [
+      {
+        "user": "Grace",
+        "comment_text": "Important topic!",
+        "timestamp": ISODate("2023-11-08T08:30:00Z")
+      }
+    ]
+  },
+  {
+    "title": "Artificial Intelligence in Healthcare",
+    "description": "AI applications in healthcare and medical research.",
+    "url": "https://example.com/ai-healthcare",
+    "tags": ["Artificial Intelligence", "Healthcare", "Medicine"],
+    "publisher_name": "MedTech Innovations",
+    "likes": 20,
+    "comments": []
+  }
+]);
+
+
+## question 1 --- 
+db.post.find({comments:[]})
+
+## question 2 ---
+db.post.find({title:{$regex:/^A.*/}}
+
+## question 3 -- 
+
+count number of post with tags
+
+db.post.aggregate([
+{ 
+	$match:{ "tags": {$exists:true ,$ne:[]}}
+},
+{
+	$count:"Toral No of tags"
+}]);
+
+# question number 4 --- 
+
+db.post.find({},{likes:1,title:1}).sort({likes:-1});
